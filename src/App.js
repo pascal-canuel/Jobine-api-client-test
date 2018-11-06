@@ -80,7 +80,12 @@ $.post({
   }
 });
 */
-
+fetch("http://localhost:51617/JobineDB/webresources/entities.usertype")
+.then((resp) => resp.json()) // Transform the data into json
+  .then(function(data) {
+    console.log(data);
+  }) 
+    
   }
 }
 
