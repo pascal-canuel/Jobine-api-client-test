@@ -61,11 +61,13 @@ getJSON('http://localhost:51617/JobineDB/webresources/entities.user');
 getJSON('http://localhost:51617/JobineDB/webresources/entities.offer'); 
 */
 
+/*
 $.getJSON("http://localhost:51617/JobineDB/webresources/entities.usertype", function(result){
   $.each(result, function(i, field){
     console.log(field);
   })
 });
+*/
 
 /*
 $.post({
@@ -80,13 +82,80 @@ $.post({
   }
 });
 */
+
+/*
+$.ajax({
+  headers: { 
+    'Accept': 'application/json',
+    'Content-Type': 'application/json' 
+  },
+  url: "http://localhost:51617/JobineDB/webresources/entities.usertype/14",
+  type: 'DELETE',
+  success: function(data) {
+    //play with data
+    console.log("deleted");
+  },
+  error: function(request,msg,error) {
+    // handle failure
+    console.log("error while deleting: " + error);
+  }
+});
+*/
+
 fetch("http://localhost:51617/JobineDB/webresources/entities.usertype")
 .then((resp) => resp.json()) // Transform the data into json
   .then(function(data) {
     console.log(data);
   }) 
     
-  }
+  var data = JSON.stringify({ nameUserType: "donal duck" });
+  console.log(data);
+/*
+  var request = new Request("http://localhost:51617/JobineDB/webresources/entities.usertype", {
+	method: 'POST', 
+	mode: 'cors', 
+	headers: new Headers({
+		'Accept': 'application/json',
+    'Content-Type': 'application/json' 
+	})
+});
+
+fetch(request, {
+  body: data
+})
+*/
+
+/*
+var request = new Request("http://localhost:51617/JobineDB/webresources/entities.usertype/8", {
+	method: 'DELETE', 
+	mode: 'cors', 
+	headers: new Headers({
+		'Accept': 'application/json',
+    'Content-Type': 'application/json' 
+	})
+});
+
+fetch(request, {
+  
+})
+*/
+
+var request = new Request("http://localhost:51617/JobineDB/webresources/entities.usertype/2", {
+	method: 'PUT', 
+	mode: 'cors', 
+	headers: new Headers({
+		'Accept': 'application/json',
+    'Content-Type': 'application/json' 
+	})
+});
+
+fetch(request, {
+  body: JSON.stringify({idUserType :2, nameUserType: "mkayyyyyyyy222" })
+})
+
+
+ }
+
 }
 
 export default App;
